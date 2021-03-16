@@ -11,12 +11,17 @@ const todos = [
     },
     {
         id: 3,
-        todo: 'Cook dinner',
+        todo: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel culpa magni aperiam laudantium natus delectus, minus corrupti officia dicta beatae.',
         done: false
     },
     {
         id: 4,
         todo: 'Walk the dog',
+        done: false
+    },
+    {
+        id: 5,
+        todo: 'Take out trash',
         done: false
     }
 ];
