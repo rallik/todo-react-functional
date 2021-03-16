@@ -1,0 +1,35 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+body, main {
+  width: 100vw;
+  height: 100vh;
+
+}
+
+main {
+  display: grid;
+  grid-template-columns: auto 411px auto;
+  grid-template-rows: auto 731px auto;
+}
+
+.container {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  max-width: 411px;
+  max-width: 731px;
+  background-color: #fcfcfc;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+
+  display: flex;
+  flex-direction: column;
+}
+
+
+
