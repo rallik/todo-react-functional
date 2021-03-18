@@ -1,21 +1,27 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
+import data from './todos.js';
+import Todo from './Todo';
 
 const List = (props) => {
-    const { id, todo, done } = props;
-    // const [ complete, setComplete ] = useState({})
-    const doneBtn = () => {
-        // setComplete((old) => {
-        //     return !old;
-        // })
-        console.log("heheheh")
-    }
+    const [ clear, setClear ] = useState(props);
+    const [ todos, setTodos ] = useState(data);
+    console.log(todos)
+    
     return (
-        <article className='card' id={id}>
-            <div className='done'></div>
-            <h4 className='txt'>{todo}</h4>
-            <button className='btn' onClick={doneBtn}>Done</button>
-        </article>
+        <React.Fragment>
+            {
+            todos.map((t) => {
+                return (
+                    <React.Fragment>
+                        <Todo key={t.id} {...t}></Todo>
+                    </React.Fragment>
+                    );
+            })
+            }
+            
+        </React.Fragment>
     );
+    
 }
 
 export default List;

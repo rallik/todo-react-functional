@@ -1,24 +1,17 @@
 import React, {useState} from 'react';
-import data from './todos.js';
-import List from './List'
+import List from './List';
 
 const App = () => {
-    const [todos, setTodos] = useState(data)
+    const [clear, setClear] = useState(false)
     console.log(typeof todos)
     const clearList = () => {
-        setTodos([])
+        setClear(true)
     }
     return (
         <main>
             <section className='container'>
             <h1 className='title'>To-Do List</h1>    
-            {
-                todos.map((todo) => {
-                    return (
-                        <List key={todo.id} {...todo}></List>
-                    );
-                })
-            }
+            <List {...clear} />
             <button className='clearAll' onClick={clearList}>Clear All</button>
             </section>
         </main>

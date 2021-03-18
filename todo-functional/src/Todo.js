@@ -1,23 +1,23 @@
-//For refactoring
+import React, {useState, useEffect} from 'react';
 
-// import React, {useState} from 'react';
+const Todo = (props) => {
+    const [ todoState, setTodoState ] = useState(props)
+    const [ done, setDone ] = useState(todoState.done)
 
-// const Todo = (props) => {
-//     const { id, todo, done } = props;
-//     // const [ complete, setComplete ] = useState({})
-//     const doneBtn = () => {
-//         // setComplete((old) => {
-//         //     return !old;
-//         // })
-//         console.log("heheheh")
-//     }
-//     return (
-//         <article className='card' id={id}>
-//             <div className='done'></div>
-//             <h4 className='txt'>{todo}</h4>
-//             <button className='btn' onClick={doneBtn}>Done</button>
-//         </article>
-//     );
-// }
+    const isDone = () => {
+        setDone(true)
+    }
 
-// export default Todo;
+    useEffect(() => {
+        setTodoState(props)
+    })
+    return (
+        <article className='card' key={todoState.id}>
+            <div className={todoState.done ? 'done' : 'notdone'}></div>
+            <h4 className={todoState.done ? 'txtDone' : 'txtNotDone'}>{todoState.todo}</h4>
+            <button className='btn' >Done</button>
+        </article>
+    );
+}
+
+export default Todo;
