@@ -1,19 +1,21 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
 const Todo = (props) => {
-    const { id, todo, done } = props;
-    // const [ complete, setComplete ] = useState({})
-    const doneBtn = () => {
-        // setComplete((old) => {
-        //     return !old;
-        // })
-        console.log("heheheh")
+    const [ todoState, setTodoState ] = useState(props)
+    const [ done, setDone ] = useState(todoState.done)
+
+    const isDone = () => {
+        setDone(true)
     }
+
+    useEffect(() => {
+        setTodoState(props)
+    })
     return (
-        <article className='card' id={id}>
-            <div className='done'></div>
-            <h4 className='txt'>{todo}</h4>
-            <button className='btn' onClick={doneBtn}>Done</button>
+        <article className='card' key={todoState.id}>
+            <div className={todoState.done ? 'done' : 'notdone'}></div>
+            <h4 className={todoState.done ? 'txtDone' : 'txtNotDone'}>{todoState.todo}</h4>
+            <button className='btn' >Done</button>
         </article>
     );
 }
