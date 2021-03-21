@@ -1,21 +1,22 @@
 import React, {useState, useEffect} from 'react';
 
 const Todo = (props) => {
-    const [ todoState, setTodoState ] = useState(props)
-    const [ done, setDone ] = useState(todoState.done)
+    console.log(props)
+    const {id, done, todo, fullList, updateTodos} = props;
+    
 
-    const isDone = () => {
-        setDone(true)
+    const markAsDone = () => {
+        console.log(fullList)
+        let updatedList = fullList.filter((td) => id !== td.id)
+        updateTodos(updatedList)
     }
 
-    useEffect(() => {
-        setTodoState(props)
-    })
+
     return (
-        <article className='card' key={todoState.id}>
-            <div className={todoState.done ? 'done' : 'notdone'}></div>
-            <h4 className={todoState.done ? 'txtDone' : 'txtNotDone'}>{todoState.todo}</h4>
-            <button className='btn' >Done</button>
+        <article className='card' key={id}>
+            <div className={done ? 'done' : 'notdone'}></div>
+            <h4 className={done ? 'txtDone' : 'txtNotDone'}>{todo}</h4>
+            <button className='btn' onClick={markAsDone}>Done</button>
         </article>
     );
 }
