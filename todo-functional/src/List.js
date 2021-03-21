@@ -2,20 +2,14 @@ import React, {useState, useEffect} from 'react';
 import data from './todos.js';
 import Todo from './Todo';
 
-const List = (props) => {
-    const [ clear, setClear ] = useState(props);
+const List = () => {
     const [ todos, setTodos ] = useState(data);
-    console.log(todos)
-    
+    useEffect(() =>{ setTodos(todos)}, [todos]);
     return (
         <React.Fragment>
             {
             todos.map((t) => {
-                return (
-                    <React.Fragment>
-                        <Todo key={t.id} {...t}></Todo>
-                    </React.Fragment>
-                    );
+                return <Todo id={t.id} fullList={todos} updateTodos={setTodos} {...t}></Todo>;
             })
             }
             
