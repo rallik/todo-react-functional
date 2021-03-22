@@ -34,6 +34,7 @@ main {
 
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .card {
@@ -78,7 +79,29 @@ main {
   margin-right: 2rem;
 }
 
-.clearAll {
-  width: 50%;
-  margin: 0 auto;
+.newTodoForm {
+  bottom: 0%;
+  display: grid;
+  grid-template-rows: 30px 100px 20px 30px 30px;
+  grid-template-columns: 28px 40px 40px 20px 155px 20px 40px 40px 28px;
+}
+
+.newTodo {
+  margin: 0;
+  padding: 0;
+  grid-column: 3/8;
+  grid-row: 2/3;
+}
+
+.chr {
+  grid-column: 7/8;
+  grid-row: 3/4;
+}
+
+.submitBtn {
+  /* margin: 0 8rem 1.5rem 8rem; */
+  /* padding: 0.75rem; */
+  grid-column: 5/6;
+  grid-row: 4/5;
+  align-items: center;
 }
