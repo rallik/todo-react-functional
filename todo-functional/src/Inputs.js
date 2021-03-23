@@ -6,7 +6,7 @@ const Inputs = () => {
 
     return (
         <form className='newTodoForm'>
-            <input type="text" name='todo' className='newTodo' onChange={(e) => setChrCount(e.target.value.length)}/>
+            <textarea name='todo' className='newTodo' onChange={(e) => setChrCount(e.target.value.length)}></textarea>
             <label htmlFor="todo" className='chr'>{chrCount}</label>
             <input type="submit" value="Add" className='submitBtn'/>
         </form>
